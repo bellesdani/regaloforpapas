@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface GhibliTimelapseProps {
@@ -8,17 +7,19 @@ interface GhibliTimelapseProps {
 const GhibliTimelapse: React.FC<GhibliTimelapseProps> = ({ imageUrl }) => {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-      {/* The Image - Clearer and sharper */}
-      <div 
-        className="w-full h-full bg-cover bg-center transition-all duration-100"
+      
+      {/* Background image with real fade */}
+      <div
+        key={imageUrl}
+        className="absolute inset-0 bg-cover bg-center opacity-0 animate-fade-in"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      
-      {/* Minimal Vignette instead of heavy white blur */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]"></div>
-      
-      {/* Subtle Flash effect on transition */}
-      <div className="absolute inset-0 bg-white/5 animate-pulse pointer-events-none"></div>
+
+      {/* Subtle vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)] pointer-events-none" />
+
+      {/* Very soft flash (optional, remove if you want it calmer) */}
+      <div className="absolute inset-0 bg-white/5 pointer-events-none" />
     </div>
   );
 };
