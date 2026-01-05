@@ -1,4 +1,3 @@
-
 export const GHIBLI_IMAGES = [
   '/img/1.jpg',
   '/img/2.jfif',
@@ -17,6 +16,7 @@ export const GHIBLI_IMAGES = [
   '/img/15.jpg',
   '/img/16.jpg',
 ];
+
 
 
 export const SURPRISE_DATA = {
